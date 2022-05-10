@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ListGroup, Dropdown, Media } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import axios from 'axios';
 
@@ -13,27 +13,16 @@ import avatar1 from '../../../../assets/images/user/avatar-1.jpg';
 import avatar2 from '../../../../assets/images/user/avatar-2.jpg';
 import avatar3 from '../../../../assets/images/user/avatar-3.jpg';
 import avatar4 from '../../../../assets/images/user/avatar-4.jpg';
-
 const NavRight = () => {
     const account = useSelector((state) => state.account);
     const dispatcher = useDispatch();
-
+const history=useHistory()
     const [listOpen, setListOpen] = useState(false);
-
+    const HandleProfile = () => {
+        history.push('/profile')
+    };
     const handleLogout = () => {
-        axios
-            .post(API_SERVER + 'users/logout', {}, { headers: { Authorization: `${account.token}` } })
-            .then(function (response) {
-                // Force the LOGOUT
-                //if (response.data.success) {
-                dispatcher({ type: LOGOUT });
-                //} else {
-                //    console.log('response - ', response.data.msg);
-                //}
-            })
-            .catch(function (error) {
-                console.log('error - ', error);
-            });
+        history.push('/signin')
     };
 
     return (
@@ -154,25 +143,16 @@ const NavRight = () => {
                             </div>
                             <ListGroup as="ul" bsPrefix=" " variant="flush" className="pro-body">
                                 <ListGroup.Item as="li" bsPrefix=" ">
-                                    <Link to="#" className="dropdown-item">
-                                        <i className="feather icon-settings" /> Settings
+                                    <Link to="/changepassword" className="dropdown-item">
+                                        <i className="feather icon-settings" /> Manage Password
                                     </Link>
                                 </ListGroup.Item>
-                                <ListGroup.Item as="li" bsPrefix=" ">
+                                <ListGroup.Item as="li" onClick={HandleProfile} bsPrefix=" ">
                                     <Link to="#" className="dropdown-item">
                                         <i className="feather icon-user" /> Profile
                                     </Link>
                                 </ListGroup.Item>
-                                <ListGroup.Item as="li" bsPrefix=" ">
-                                    <Link to="#" className="dropdown-item">
-                                        <i className="feather icon-mail" /> My Messages
-                                    </Link>
-                                </ListGroup.Item>
-                                <ListGroup.Item as="li" bsPrefix=" ">
-                                    <Link to="#" className="dropdown-item">
-                                        <i className="feather icon-lock" /> Lock Screen
-                                    </Link>
-                                </ListGroup.Item>
+                            
                                 <ListGroup.Item as="li" bsPrefix=" ">
                                     <Link to="#" className="dropdown-item" onClick={handleLogout}>
                                         <i className="feather icon-log-out" /> Logout

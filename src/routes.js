@@ -39,13 +39,24 @@ const routes = [
         exact: true,
         guard: GuestGuard,
         path: '/signin',
-        component: lazy(() => import('./views/auth/signin/SignIn1'))
+        component: lazy(() => import('./views/auth/signin/SignIn'))
     },
     {
         exact: true,
         guard: GuestGuard,
-        path: '/signup',
-        component: lazy(() => import('./views/auth/signup/SignUp1'))
+        path: '/forgotpassword',
+        component: lazy(() => import('./views/auth/reset/Forgotpassword'))
+    },
+    {
+        exact: true,
+        path: '/checkemail',
+        component: lazy(() => import('./views/auth/reset/CheckEmail'))
+    },
+
+    {
+        exact: true,
+        path: '/resetpassword/:token',
+        component: lazy(() => import('./views/auth/reset/Resetpassword'))
     },
     {
         path: '*',
@@ -56,6 +67,11 @@ const routes = [
                 exact: true,
                 path: '/dashboard',
                 component: lazy(() => import('./views/dashboard/DashDefault'))
+            },
+            {
+                exact: true,
+                path: '/changepassword',
+                component: lazy(() => import('./views/auth/reset/Changepassword'))
             },
 
             {
@@ -85,8 +101,13 @@ const routes = [
             },
             {
                 exact: true,
-                path: '/basic/typography',
-                component: lazy(() => import('./views/ui-elements/basic/BasicTypography'))
+                path: '/warehouse',
+                component: lazy(() => import('./views/shipment/Warehouse'))
+            },
+            {
+                exact: true,
+                path: '/driver',
+                component: lazy(() => import('./views/shipment/Driver'))
             },
 
             {
@@ -96,19 +117,29 @@ const routes = [
             },
             {
                 exact: true,
-                path: '/tables/bootstrap',
-                component: lazy(() => import('./views/tables/BootstrapTable'))
+                path: '/codbalance',
+                component: lazy(() => import('./views/shipment/CODBalance'))
             },
             {
                 exact: true,
-                path: '/maps/google-map',
-                component: lazy(() => import('./views/maps/GoogleMaps'))
+                path: '/ticket&support',
+                component: lazy(() => import('./views/shipment/Ticket'))
             },
-
+            {
+                exact: true,
+                path: '/profile',
+                component: lazy(() => import('./views/main/profile'))
+            },
+            
             {
                 exact: true,
                 path: '/manageuser',
                 component: lazy(() => import('./views/shipment/Manageuser'))
+            },
+            {
+                exact: true,
+                path: '/ticket&support/:ticketid',
+                component: lazy(() => import('./views/shipment/Ticketdetail'))
             },
             {
                 path: '*',

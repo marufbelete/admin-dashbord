@@ -1,14 +1,10 @@
+import React,{useState} from 'react';
+import { Row, Col, Card, Table } from 'react-bootstrap';
 import MaterialTable from "material-table";
-import {tableIcons} from '../../reusable/tableicon'
-import {useState,useRef} from 'react';
-import {TableContainer} from "../../styled/table.styled";
-import {MainContainter} from '../../styled/report.styled';
-import {useSelector} from 'react-redux';
-import { StyledCloudUploadIcon,FileInput } from "../../styled/main.styled";
+import {tableIcons} from './Tableicon'
 
 export default function Warehouse() {
-  const isSidebarOpen=useSelector(state=>state.sidebar.isSideBarOpen)
-  const fileref=useRef()
+  
 const ImportImage=()=>{
 
 }
@@ -26,27 +22,37 @@ const ImportImage=()=>{
   ]);
 
   const [data, setData] = useState([
-    {id: 1, Warehouseid: '120122', country: 'Saudi',city:'Riyad',location:'21 Street',ctype:'auto',ctime:null,contactperson:'maruf',contactphone:'09463',alternativecontact:'Some one' },
-    {id: 1, Warehouseid: '120122', country: 'Saudi',city:'Riyad',location:'21 Street',ctype:'auto',ctime:null,contactperson:'maruf',contactphone:'09463',alternativecontact:'Some one' },
-    {id: 1, Warehouseid: '120122', country: 'Saudi',city:'Riyad',location:'21 Street',ctype:'auto',ctime:null,contactperson:'maruf',contactphone:'09463',alternativecontact:'Some one' },
-    {id: 1, Warehouseid: '120122', country: 'Saudi',city:'Riyad',location:'21 Street',ctype:'auto',ctime:null,contactperson:'maruf',contactphone:'09463',alternativecontact:'Some one' },
-    {id: 1, Warehouseid: '120122', country: 'Saudi',city:'Riyad',location:'21 Street',ctype:'manual',ctime:2,contactperson:'maruf',contactphone:'09463',alternativecontact:'Some one' },
-    {id: 1, Warehouseid: '120122', country: 'Saudi',city:'Riyad',location:'21 Street',ctype:'auto',ctime:null,contactperson:'maruf',contactphone:'09463',alternativecontact:'Some one' },
-    {id: 1, Warehouseid: '120122', country: 'Saudi',city:'Riyad',location:'21 Street',ctype:'auto',ctime:null,contactperson:'maruf',contactphone:'09463',alternativecontact:'Some one' },
-    {id: 1, Warehouseid: '120122', country: 'Saudi',city:'Riyad',location:'21 Street',ctype:'manual',ctime:4,contactperson:'maruf',contactphone:'09463',alternativecontact:'Some one' },
-    {id: 1, Warehouseid: '120122', country: 'Saudi',city:'Riyad',location:'21 Street',ctype:'auto',ctime:null,contactperson:'maruf',contactphone:'09463',alternativecontact:'Some one' },
-    {id: 1, Warehouseid: '120122', country: 'Saudi',city:'Riyad',location:'21 Street',ctype:'auto',ctime:null,contactperson:'maruf',contactphone:'09463',alternativecontact:'Some one' },
-    {id: 1, Warehouseid: '120122', country: 'Saudi',city:'Riyad',location:'21 Street',ctype:'auto',ctime:null,contactperson:'maruf',contactphone:'09463',alternativecontact:'Some one' },
-    {id: 1, Warehouseid: '120122', country: 'Saudi',city:'Riyad',location:'21 Street',ctype:'auto',ctime:null,contactperson:'maruf',contactphone:'09463',alternativecontact:'Some one' },
-    {id: 1, Warehouseid: '120122', country: 'Saudi',city:'Riyad',location:'21 Street',ctype:'auto',ctime:null,contactperson:'maruf',contactphone:'09463',alternativecontact:'Some one' },
-    {id: 1, Warehouseid: '120122', country: 'Saudi',city:'Riyad',location:'21 Street',ctype:'auto',ctime:null,contactperson:'maruf',contactphone:'09463',alternativecontact:'Some one' },
+    {id: 1, warehouseid: '120122', country: 'Saudi',city:'Riyad',location:'21 Street',ctype:'auto',ctime:null,contactperson:'maruf',contactphone:'09463',alternativecontact:'Some one' },
+    {id: 1, warehouseid: '120122', country: 'Saudi',city:'Riyad',location:'21 Street',ctype:'auto',ctime:null,contactperson:'maruf',contactphone:'09463',alternativecontact:'Some one' },
+    {id: 1, warehouseid: '120122', country: 'Saudi',city:'Riyad',location:'21 Street',ctype:'auto',ctime:null,contactperson:'maruf',contactphone:'09463',alternativecontact:'Some one' },
+    {id: 1, warehouseid: '120122', country: 'Saudi',city:'Riyad',location:'21 Street',ctype:'auto',ctime:null,contactperson:'maruf',contactphone:'09463',alternativecontact:'Some one' },
+    {id: 1, warehouseid: '120122', country: 'Saudi',city:'Riyad',location:'21 Street',ctype:'manual',ctime:2,contactperson:'maruf',contactphone:'09463',alternativecontact:'Some one' },
+    {id: 1, warehouseid: '120122', country: 'Saudi',city:'Riyad',location:'21 Street',ctype:'auto',ctime:null,contactperson:'maruf',contactphone:'09463',alternativecontact:'Some one' },
+    {id: 1, warehouseid: '120122', country: 'Saudi',city:'Riyad',location:'21 Street',ctype:'auto',ctime:null,contactperson:'maruf',contactphone:'09463',alternativecontact:'Some one' },
+    {id: 1, warehouseid: '120122', country: 'Saudi',city:'Riyad',location:'21 Street',ctype:'manual',ctime:4,contactperson:'maruf',contactphone:'09463',alternativecontact:'Some one' },
+    {id: 1, warehouseid: '120122', country: 'Saudi',city:'Riyad',location:'21 Street',ctype:'auto',ctime:null,contactperson:'maruf',contactphone:'09463',alternativecontact:'Some one' },
+    {id: 1, warehouseid: '120122', country: 'Saudi',city:'Riyad',location:'21 Street',ctype:'auto',ctime:null,contactperson:'maruf',contactphone:'09463',alternativecontact:'Some one' },
+    {id: 1, warehouseid: '120122', country: 'Saudi',city:'Riyad',location:'21 Street',ctype:'auto',ctime:null,contactperson:'maruf',contactphone:'09463',alternativecontact:'Some one' },
+    {id: 1, warehouseid: '120122', country: 'Saudi',city:'Riyad',location:'21 Street',ctype:'auto',ctime:null,contactperson:'maruf',contactphone:'09463',alternativecontact:'Some one' },
+    {id: 1, warehouseid: '120122', country: 'Saudi',city:'Riyad',location:'21 Street',ctype:'auto',ctime:null,contactperson:'maruf',contactphone:'09463',alternativecontact:'Some one' },
+    {id: 1, warehouseid: '120122', country: 'Saudi',city:'Riyad',location:'21 Street',ctype:'auto',ctime:null,contactperson:'maruf',contactphone:'09463',alternativecontact:'Some one' },
   ]);
 
   return (
-    <TableContainer open={isSidebarOpen}>
-      <FileInput ref={fileref} type="file" onChange={ImportImage}/>
-      <StyledCloudUploadIcon warehouse onClick={()=>fileref.current.click()}/>
-    <MaterialTable
+    <React.Fragment>
+    <Row>
+        <Col>
+            <Card>
+                <Card.Header>
+                    <Card.Title as="h5">Shipment</Card.Title>
+                   
+                </Card.Header>
+                <Card.Body>
+                <MaterialTable
+                 components={{
+                    Container: props => <div {...props} elevation={0}/>
+               }}
+                 responsive
       title="Warehouse"
       columns={columns}
       data={data}
@@ -89,7 +95,11 @@ const ImportImage=()=>{
           }),
       }}
     />
-    </TableContainer>
+    </Card.Body>
+        </Card>
+        </Col>
+         </Row>
+        </React.Fragment>
   )
 }
 

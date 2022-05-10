@@ -1,13 +1,9 @@
+import React,{useState} from 'react';
+import { Row, Col, Card, Table } from 'react-bootstrap';
 import MaterialTable from "material-table";
-import {tableIcons} from '../../reusable/tableicon'
-import {useState,useRef} from 'react';
-import {TableContainer} from "../../styled/table.styled";
-import {MainContainter} from '../../styled/report.styled';
-import { useSelector } from "react-redux";
-import { StyledCloudUploadIcon,FileInput } from "../../styled/main.styled";
+import {tableIcons} from './Tableicon'
 export default function CODBalance() {
-  const isSidebarOpen=useSelector(state=>state.sidebar.isSideBarOpen)
-  const fileref=useRef()
+  // const fileref=useRef()
 const ImportImage=()=>{
 
 }
@@ -35,10 +31,21 @@ const [data, setData] = useState([
 ]);
 
   return (
-    <TableContainer open={isSidebarOpen}>
-        <FileInput ref={fileref} type="file" onChange={ImportImage}/>
-      <StyledCloudUploadIcon cod onClick={()=>fileref.current.click()}/>
-    <MaterialTable
+    <React.Fragment>
+    <Row>
+        <Col>
+            <Card>
+                <Card.Header>
+                    <Card.Title as="h5">Shipment</Card.Title>
+                    <span className="d-block m-t-5">
+                    </span>
+                </Card.Header>
+                <Card.Body>
+                <MaterialTable
+                 components={{
+                    Container: props => <div {...props} elevation={0}/>
+               }}
+                 responsive
       title="COD Balance"
       columns={columns}
       data={data}
@@ -104,7 +111,11 @@ const [data, setData] = useState([
           }),
       }}
     />
-    </TableContainer>
+    </Card.Body>
+        </Card>
+        </Col>
+         </Row>
+        </React.Fragment>
   )
 }
 

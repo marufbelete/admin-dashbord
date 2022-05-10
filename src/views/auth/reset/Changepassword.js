@@ -51,16 +51,16 @@ const FormsElements = () => {
                 <Col sm={12}>
                     <Card>
                         <Card.Header>
-                            <Card.Title as="h5">Add User</Card.Title>
+                            <Card.Title as="h5">Change Password</Card.Title>
                         </Card.Header>
                         <Card.Body>
                             <Row>
-                                <Col md={6}>
+                                <Col md={6} style={{margin:'auto'}}>
                                         <Form.Group style={{marginBottom:'30px'}} controlId="formBasicEmail">
                                         <TextField
-                                            type='text' 
+                                            type='password' 
                                             variant='outlined'
-                                            label="User name"
+                                            label="Old Password"
                                             fullWidth
                                             required
                                         /><div
@@ -74,7 +74,7 @@ const FormsElements = () => {
                                         <TextField
                                             type='password' 
                                             variant='outlined'
-                                            label="Password"
+                                            label="New Password"
                                             required
                                             fullWidth
                                         /><div
@@ -97,68 +97,12 @@ const FormsElements = () => {
                                             right:'22px',
                                             top:'187px',
                                             color:'#038FCF'}}><EnhancedEncryptionIcon/></div>
-                                        </Form.Group>                                   
+                                        </Form.Group> 
+                                           
+                                        <Button  variant="primary">Change Password</Button>
+                               
                                 </Col>
-                                <Col md={6}>
-                                <Form.Group style={{marginBottom:'30px'}} controlId="formBasicPassword">
-                                <TextField
-                                    value={value}
-                                    onChange={(e) => setValue(e.target.value)}
-                                    select // tell TextField to render select
-                                    label="Role type"
-                                    variant='outlined'
-                                    fullWidth
-                                    required
-                                    >
-                                    <MenuItem key={1243} value="12345">
-                                    Admin
-                                    </MenuItem>
-                                    <MenuItem key={1243} value="1254">
-                                    Admin1
-                                    </MenuItem>
-                                    <MenuItem key={1542} value="1111">
-                                    Driver
-                                    </MenuItem>
-                                    </TextField><div
-                                        style={{position:'absolute',
-                                            display:'inline-flex',
-                                            right:'22px',
-                                            top:'15px',
-                                            color:'#038FCF'}}><WorkIcon/></div>
-                                        </Form.Group>
-                                        <Form.Group style={{marginBottom:'30px'}} controlId="formBasicPassword">
-                                        <TextField
-                                    value={value}
-                                    onChange={(e) => setValue(e.target.value)}
-                                    select // tell TextField to render select
-                                    label="Hub id"
-                                    variant='outlined'
-                                    fullWidth
-                                    required
-                                    >
-                                        
-                                    <MenuItem key={1} value="273">
-                                    2731
-                                    </MenuItem>
-                                    <MenuItem key={2} value="4653">
-                                    4653
-                                    </MenuItem>
-                                    <MenuItem key={3} value="5653">
-                                    5653
-                                    </MenuItem>
-                                    </TextField><div
-                                        style={{position:'absolute',
-                                            display:'inline-flex',
-                                            right:'22px',
-                                            top:'100px',
-                                            color:'#038FCF'}}><DeviceHubIcon/></div>
-                                        </Form.Group>
-                                   
-                                </Col>
-                                <Col style={{paddingBottom:'20px'}}>
-                                <Button variant="primary">Add User</Button>
-
-                                </Col>
+                            
                             </Row>
                         </Card.Body>
                     </Card>

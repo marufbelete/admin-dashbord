@@ -68,21 +68,21 @@ const menuItems = {
                     id: 'warehouse',
                     title: 'Warehouse',
                     type: 'item',
-                    url: '/forms/form-basic',
+                    url: '/warehouse',
                     icon: 'feather icon-file-text'
                 },
                 {
                     id: 'driver',
                     title: 'Driver',
                     type: 'item',
-                    url: '/tables/bootstrap',
+                    url: '/driver',
                     icon: 'feather icon-server'
                 },
                 {
                     id: 'codbalance',
                     title: 'COD Balance',
                     type: 'item',
-                    url: '/tables/bootstrap',
+                    url: '/codbalance',
                     icon: 'feather icon-server'
                 }
             ]
@@ -97,7 +97,7 @@ const menuItems = {
                     id: 'ticket',
                     title: 'Ticket And Support',
                     type: 'item',
-                    url: '/cticket&support',
+                    url: '/ticket&support',
                     icon: 'feather icon-pie-chart'
                 },
                 {

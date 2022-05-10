@@ -32,10 +32,8 @@ export default function ManualAssignment() {
         <Col>
             <Card>
                 <Card.Header>
-                    <Card.Title as="h5">Basic Table</Card.Title>
-                    <span className="d-block m-t-5">
-                        use bootstrap <code>Table</code> component
-                    </span>
+                    <Card.Title as="h5">Shipment</Card.Title>
+                   
                 </Card.Header>
                 <Card.Body>
                 <MaterialTable

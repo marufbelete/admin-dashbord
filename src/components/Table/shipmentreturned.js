@@ -32,10 +32,8 @@ export default function ShipmentReturn() {
                 <Col>
                     <Card>
                         <Card.Header>
-                            <Card.Title as="h5">Basic Table</Card.Title>
-                            <span className="d-block m-t-5">
-                                use bootstrap <code>Table</code> component
-                            </span>
+                            <Card.Title as="h5">Shipment</Card.Title>
+                            
                         </Card.Header>
                         <Card.Body>
                         <MaterialTable
@@ -43,7 +41,7 @@ export default function ShipmentReturn() {
                           Container: props => <div {...props} elevation={0}/>
                      }}
                          responsive
-      title="Shipment to be Returned"
+      title="Shipment returned"
       columns={columns}
       data={data}
       icons={tableIcons}

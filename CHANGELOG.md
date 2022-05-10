@@ -12,4 +12,4 @@
 ### Initial Release
 
 - Integrate with Node JS Backend
-- UI: Datta Able v0.1.0 (free version)
+- UI: amin dashborad v0.1.0 (free version)

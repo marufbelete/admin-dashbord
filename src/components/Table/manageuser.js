@@ -8,6 +8,7 @@ export default function ManageUser() {
   const [columns, setColumns] = useState([
     {title: "id", field: "id", hidden: true},
     { title: 'Full Name', field: 'name' },
+    { title: 'Email Address', field: 'email' },
     { title: 'Role', field: 'role' ,lookup: { 3421: 'Admin', 6123: 'Driver'}},
     {
       title: 'Hub Id',field: 'hubid',
@@ -18,18 +19,18 @@ export default function ManageUser() {
   ]);
 
   const [data, setData] = useState([
-    {id: 1, name: 'said murad', role: 3421, hubid: 3421,address:'Riyad' },
-    {id: 1, name: 'said murad', role: 3421, hubid: 3421,address:'Riyad' },
-    {id: 1, name: 'said murad', role: 3421, hubid: 3421,address:'Riyad' },
-    {id: 1, name: 'said murad', role: 3421, hubid: 3421,address:'Riyad' },
-    {id: 1, name: 'said murad', role: 3421, hubid: 3421,address:'Riyad' },
-    {id: 1, name: 'said murad', role: 3421, hubid: 3421,address:'Riyad' },
-    {id: 1, name: 'said murad', role: 6123, hubid: 6123,address:'Riyad' },
-    {id: 1, name: 'said murad', role: 6123, hubid: 6123,address:'Riyad' },
-    {id: 1, name: 'said murad', role: 6123, hubid: 6123,address:'Riyad' },
-    {id: 1, name: 'said murad', role: 6123, hubid: 6123,address:'Riyad' },
-    {id: 1, name: 'said murad', role: 6123, hubid: 6123,address:'Riyad' },
-    {id: 1, name: 'said murad', role: 6123, hubid: 6123,address:'Riyad' },
+    {id: 1, name: 'said murad',email:'saleh@gmail.com', role: 3421, hubid: 3421,address:'Riyad' },
+    {id: 1, name: 'said murad',email:'saleh@gmail.com', role: 3421, hubid: 3421,address:'Riyad' },
+    {id: 1, name: 'said murad',email:'saleh@gmail.com', role: 3421, hubid: 3421,address:'Riyad' },
+    {id: 1, name: 'said murad',email:'saleh@gmail.com', role: 3421, hubid: 3421,address:'Riyad' },
+    {id: 1, name: 'said murad',email:'saleh@gmail.com', role: 3421, hubid: 3421,address:'Riyad' },
+    {id: 1, name: 'said murad',email:'saleh@gmail.com', role: 3421, hubid: 3421,address:'Riyad' },
+    {id: 1, name: 'said murad',email:'saleh@gmail.com', role: 6123, hubid: 6123,address:'Riyad' },
+    {id: 1, name: 'said murad',email:'saleh@gmail.com', role: 6123, hubid: 6123,address:'Riyad' },
+    {id: 1, name: 'said murad',email:'saleh@gmail.com', role: 6123, hubid: 6123,address:'Riyad' },
+    {id: 1, name: 'said murad',email:'saleh@gmail.com', role: 6123, hubid: 6123,address:'Riyad' },
+    {id: 1, name: 'said murad',email:'saleh@gmail.com', role: 6123, hubid: 6123,address:'Riyad' },
+    {id: 1, name: 'said murad',email:'saleh@gmail.com', role: 6123, hubid: 6123,address:'Riyad' },
 
   ]);
 
@@ -39,10 +40,8 @@ export default function ManageUser() {
         <Col>
             <Card>
                 <Card.Header>
-                    <Card.Title as="h5">Basic Table</Card.Title>
-                    <span className="d-block m-t-5">
-                        use bootstrap <code>Table</code> component
-                    </span>
+                    <Card.Title as="h5">Setting</Card.Title>
+                    
                 </Card.Header>
                 <Card.Body>
                 <MaterialTable

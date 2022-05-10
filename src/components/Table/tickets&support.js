@@ -1,11 +1,11 @@
+import React,{useState} from 'react';
+import { Row, Col, Card, Table, Button } from 'react-bootstrap';
 import MaterialTable from "material-table";
-import {tableIcons} from '../../reusable/tableicon'
-import {useState} from 'react';
-import {TableContainer} from "../../styled/table.styled";
-import {MainContainter} from '../../styled/report.styled';
-import { useSelector } from "react-redux";
+import {tableIcons} from './Tableicon'
+import { useHistory } from 'react-router-dom';
+
 export default function TicketAndSupport() {
-  const isSidebarOpen=useSelector(state=>state.sidebar.isSideBarOpen)
+  const history=useHistory()
   const [columns, setColumns] = useState([
     {title: "id", field: "id", hidden: true},
     { title: 'Name', field: 'name' },
@@ -30,8 +30,20 @@ export default function TicketAndSupport() {
   ]);
 
   return (
-    <TableContainer open={isSidebarOpen}>
-    <MaterialTable
+    <React.Fragment>
+    <Row>
+        <Col>
+            <Card>
+                <Card.Header>
+                    <Card.Title as="h5">Shipment</Card.Title>
+                   
+                </Card.Header>
+                <Card.Body>
+                <MaterialTable
+                 components={{
+                    Container: props => <div {...props} elevation={0}/>
+               }}
+                 responsive
       title="Driver"
       columns={columns}
       data={data}
@@ -41,6 +53,17 @@ export default function TicketAndSupport() {
         exportButton:true,
         columnsButton:true
       }}
+      actions={[
+        {
+          tooltip: 'Detail',
+          icon:tableIcons.DetailPanel,
+          iconProps: { color:'blue'},
+          position:'row',
+          onClick: (evt, Data) => {
+            history.push('/ticket&support/:someid')
+           }
+        }
+      ]}
       editable={{
         onRowAdd: newData =>
           new Promise((resolve, reject) => {
@@ -74,7 +97,11 @@ export default function TicketAndSupport() {
           }),
       }}
     />
-    </TableContainer>
+   </Card.Body>
+        </Card>
+        </Col>
+         </Row>
+        </React.Fragment>
   )
 }
 
