@@ -8,7 +8,7 @@ import axios from 'axios';
 import ChatList from './ChatList';
 import { API_SERVER } from '../../../../config/constant';
 import { LOGOUT } from './../../../../store/actions';
-
+import { loginActions } from '../../../../store/login-slice';
 import avatar1 from '../../../../assets/images/user/avatar-1.jpg';
 import avatar2 from '../../../../assets/images/user/avatar-2.jpg';
 import avatar3 from '../../../../assets/images/user/avatar-3.jpg';
@@ -16,7 +16,7 @@ import avatar4 from '../../../../assets/images/user/avatar-4.jpg';
 import { userinfoActions } from '../../../../store/userinfo-slice';
 const NavRight = () => {
     const account = useSelector((state) => state.account);
-    const dispatcher = useDispatch();
+    const dispatch = useDispatch();
     const userinfo=useSelector(state=>state.userinfo)
 
 const history=useHistory()
@@ -25,6 +25,7 @@ const history=useHistory()
         history.push('/profile')
     };
     const handleLogout = () => {
+        dispatch(loginActions.isLoged(false))
         history.push('/signin')
     };
 

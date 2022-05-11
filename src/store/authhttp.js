@@ -1,26 +1,28 @@
-// import { signupActions } from "./signup-slice"
 import { loginActions } from "./login-slice"
 import { loadingActions } from "./loading-slice"
 import axios from "axios"
 import { errorActions } from "./error-slice"
 import { userinfoActions } from "./userinfo-slice"
-// export const registerUser=(data)=>{
-//     return async(dispatch)=>{
-//         try{
-//             console.log(data)
-//             const res=await axios.post('http://localhost:8000/register',data)
-//             dispatch(signupActions.status("success"))
-//         }
-//        catch(err)
-//        {
-//            console.log(err)
-//            console.log(err.response)
-//         dispatch(signupActions.status("error"))
+export const registerUser=(data)=>{
+    return async(dispatch)=>{
+        try{
+            console.log(data)
+            const res=await axios.post('https://sultan-lm2.herokuapp.com/register',data)
+            dispatch(loadingActions.status("done"))
+            
+        }
+       catch(err)
+       {
+           console.log(err)
+           console.log(err.response)
+        !!err.response&&dispatch(errorActions.Message(err.response.data.message))
+        !err.response&&dispatch(errorActions.Message('connection error please try again'))
+        dispatch(loadingActions.status('done'))
 
-//        }
+       }
 
-//     }
-// }
+    }
+}
 
 export const loginUser=(data)=>{
     console.log(data)

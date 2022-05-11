@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Row, Col, Card, Form, Button, InputGroup, FormControl, DropdownButton, Dropdown } from 'react-bootstrap';
 import TextField from "@material-ui/core/TextField";
 import MenuItem from '@material-ui/core/MenuItem';
@@ -12,40 +12,24 @@ import EnhancedEncryptionIcon from '@material-ui/icons/EnhancedEncryption';
 import DeviceHubIcon from '@material-ui/icons/DeviceHub';
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Buttons from "@material-ui/core/Button";
+import { useDispatch } from 'react-redux';
+import { loadingActions } from '../../store/loading-slice';
 const FormsElements = () => {
+    const dispatch=useDispatch()
    const [value,setValue]= useState()
-    const [validated, setValidated] = useState(false);
-    const [validatedTooltip, setValidatedTooltip] = useState(false);
-    const [supportedCheckbox, setSupportedCheckbox] = useState(false);
-    const [supportedRadio, setSupportedRadio] = useState(false);
-    const [supportedSelect, setSupportedSelect] = useState(0);
-    const [supportedFile, setSupportedFile] = useState(0);
+   const usernameref=useRef()
+   const passwordref=useRef()
+   const confirmpasswordref=useRef()
+   const roleref=useRef()
+   const hubref=useRef()
+const AdduserHandler=()=>{
+if(usernameref.trim()&&passwordref.trim()&&confirmpasswordref.trim()&&roleref.trim()&&hubref.trim())
+{
+    dispatch(loadingActions.status('pending'))
+    
+}
+    }
 
-    const handleSubmit = (event) => {
-        const form = event.currentTarget;
-        if (form.checkValidity() === false) {
-            event.preventDefault();
-            event.stopPropagation();
-        }
-        setValidated(true);
-    };
-
-    const handleSubmitTooltip = (event) => {
-        const form = event.currentTarget;
-        if (form.checkValidity() === false) {
-            event.preventDefault();
-            event.stopPropagation();
-        }
-        setValidatedTooltip(true);
-    };
-
-    const supportedSelectHandler = (event) => {
-        setSupportedSelect(parseInt(event.target.value));
-    };
-
-    const supportedFileHandler = (event) => {
-        setSupportedFile(!!event.target.value);
-    };
 
     return (
         <React.Fragment>
@@ -63,6 +47,7 @@ const FormsElements = () => {
                                             type='text' 
                                             variant='outlined'
                                             label="User name"
+                                            ref={usernameref}
                                             fullWidth
                                             required
                                         /><div
@@ -77,6 +62,7 @@ const FormsElements = () => {
                                             type='password' 
                                             variant='outlined'
                                             label="Password"
+                                            ref={passwordref}
                                             required
                                             fullWidth
                                         /><div
@@ -89,6 +75,7 @@ const FormsElements = () => {
                                         <Form.Group style={{marginBottom:'30px'}} controlId="formBasicPassword">
                                         <TextField
                                             type='password' 
+                                            ref={confirmpasswordref}
                                             variant='outlined'
                                             label="Confirm password"
                                             fullWidth
@@ -108,6 +95,7 @@ const FormsElements = () => {
                                     onChange={(e) => setValue(e.target.value)}
                                     select // tell TextField to render select
                                     label="Role type"
+                                    ref={roleref}
                                     variant='outlined'
                                     fullWidth
                                     required
@@ -134,6 +122,7 @@ const FormsElements = () => {
                                     onChange={(e) => setValue(e.target.value)}
                                     select // tell TextField to render select
                                     label="Hub id"
+                                    ref={hubref}
                                     variant='outlined'
                                     fullWidth
                                     required
@@ -159,6 +148,7 @@ const FormsElements = () => {
                                 </Col>
                                 <Col style={{paddingBottom:'20px'}}>
                                 <Buttons   
+                                onClick={AdduserHandler}
                                 type="submit"
                                 variant="contained"
                                 color="primary">
