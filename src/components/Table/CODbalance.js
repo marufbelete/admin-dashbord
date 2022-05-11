@@ -2,8 +2,10 @@ import React,{useState} from 'react';
 import { Row, Col, Card, Table } from 'react-bootstrap';
 import MaterialTable from "material-table";
 import {tableIcons} from './Tableicon'
+import {useHistory} from 'react-router-dom'
 export default function CODBalance() {
   // const fileref=useRef()
+  const history=useHistory()
 const ImportImage=()=>{
 
 }
@@ -57,7 +59,16 @@ const [data, setData] = useState([
         selection:true
       }}
       actions={[
-        {
+          {
+            tooltip: 'Detail',
+            icon:tableIcons.DetailPanel,
+            iconProps: { color:'blue'},
+            position:'row',
+            onClick: (evt, Data) => {
+              history.push('/coddetail/:codid')
+             }
+          },
+          {
           tooltip: 'Remove All Selected Users',
           icon:tableIcons.Delete,
           onClick: (evt, Data) => {

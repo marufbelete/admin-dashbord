@@ -3,8 +3,6 @@ import { Switch, Redirect, Route } from 'react-router-dom';
 
 import Loader from './components/Loader/Loader';
 import AdminLayout from './layouts/AdminLayout';
-
-import GuestGuard from './components/Auth/GuestGuard';
 import AuthGuard from './components/Auth/AuthGuard';
 
 import { BASE_URL } from './config/constant';
@@ -37,13 +35,11 @@ export const renderRoutes = (routes = []) => (
 const routes = [
     {
         exact: true,
-        guard: GuestGuard,
         path: '/signin',
         component: lazy(() => import('./views/auth/signin/SignIn'))
     },
     {
         exact: true,
-        guard: GuestGuard,
         path: '/forgotpassword',
         component: lazy(() => import('./views/auth/reset/Forgotpassword'))
     },
@@ -140,6 +136,16 @@ const routes = [
                 exact: true,
                 path: '/ticket&support/:ticketid',
                 component: lazy(() => import('./views/shipment/Ticketdetail'))
+            },
+            {
+                exact: true,
+                path: '/coddetail/:codid',
+                component: lazy(() => import('./views/shipment/CODdetail'))
+            },
+            {
+                exact: true,
+                path: '/userdetail/:userid',
+                component: lazy(() => import('./views/shipment/Userdetail'))
             },
             {
                 path: '*',

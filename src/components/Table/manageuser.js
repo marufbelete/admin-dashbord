@@ -60,6 +60,15 @@ export default function ManageUser() {
       }}
       actions={[
         {
+          tooltip: 'Detail',
+          icon:tableIcons.DetailPanel,
+          iconProps: { color:'blue'},
+          position:'row',
+          onClick: (evt, Data) => {
+            history.push('/userdetail/:userid')
+           }
+        },
+        {
           tooltip: 'Add User',
           icon:tableIcons.Add,
           iconProps: { color:'blue'},

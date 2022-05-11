@@ -10,7 +10,7 @@ import PublishIcon from '@material-ui/icons/Publish';
 import Avatar from '@material-ui/core/Avatar';
 
 
-const TicketDetail = () => {
+const UserDetail = () => {
     const detail=[{},{},{}]
     const fileref=useRef()
     return (
@@ -19,7 +19,7 @@ const TicketDetail = () => {
                 <Col>
                     <Card>
                         <Card.Header>
-                            <Card.Title as="h5">Ticket</Card.Title>
+                            <Card.Title as="h5">User Detail</Card.Title>
                             <span className="d-block m-t-5">
                             </span>
                         </Card.Header>
@@ -28,26 +28,26 @@ const TicketDetail = () => {
 
                             <Row style={{marginBottom:'20px'}}>
                           <Col style={{marginBottom:'20px', marginLeft:'10px'}}>
-                            <span style={{verticalAlign:'middle',paddingLeft:'7px',fontWeight:'bold'}}>Ticket ID: 12612</span></Col>
+                            <span style={{verticalAlign:'middle',paddingLeft:'7px',fontWeight:'bold'}}>Full Name</span></Col>
                             
                           <Col style={{marginBottom:'20px', marginLeft:'10px'}}>
-                          <span style={{verticalAlign:'middle',paddingLeft:'7px',fontWeight:'bold'}}>Driver ID:12656</span></Col>
+                          <span style={{verticalAlign:'middle',paddingLeft:'7px',fontWeight:'bold'}}>Phone:182638</span></Col>
                           <Col style={{marginBottom:'20px', marginLeft:'10px'}}>
-                          <span style={{verticalAlign:'middle',paddingLeft:'7px',fontWeight:'bold'}}>Issue Date:3-23-2022</span></Col>
+                          <span style={{verticalAlign:'middle',paddingLeft:'7px',fontWeight:'bold'}}>Address:Addis Ababa 22 s.t</span></Col>
                           </Row>
                           <Row style={{marginBottom:'20px'}}>
                           <Col style={{marginBottom:'20px',marginLeft:'10px'}}>
-                          <span style={{verticalAlign:'middle',paddingLeft:'7px',fontWeight:'bold'}}>Deliverd Date:3-27-2022</span></Col>
+                          <span style={{verticalAlign:'middle',paddingLeft:'7px',fontWeight:'bold'}}>Member Date:03-02-201</span></Col>
                           <Col style={{marginBottom:'20px',marginLeft:'10px'}}>
-                          <span style={{verticalAlign:'middle',paddingLeft:'7px',fontWeight:'bold'}}>Driver Phone</span></Col>
+                          <span style={{verticalAlign:'middle',paddingLeft:'7px',fontWeight:'bold'}}>Role Type:Driver</span></Col>
                           <Col style={{marginBottom:'20px',marginLeft:'10px'}}>
                           <span style={{verticalAlign:'middle',paddingLeft:'7px',fontWeight:'bold'}}>Other Field1</span></Col>
                           </Row>
                           <Row style={{marginBottom:'20px'}}>
                           <Col style={{marginBottom:'20px',marginLeft:'10px'}}>
-                          <span style={{verticalAlign:'middle',paddingLeft:'7px',fontWeight:'bold'}}>Deliverd Date:3-27-2022</span></Col>
+                          <span style={{verticalAlign:'middle',paddingLeft:'7px',fontWeight:'bold'}}>Other Field1</span></Col>
                           <Col style={{marginBottom:'20px',marginLeft:'10px'}}>
-                          <span style={{verticalAlign:'middle',paddingLeft:'7px',fontWeight:'bold'}}>Driver Phone</span></Col>
+                          <span style={{verticalAlign:'middle',paddingLeft:'7px',fontWeight:'bold'}}>Other Field1</span></Col>
                           <Col style={{marginBottom:'20px',marginLeft:'10px'}}>
                           <span style={{verticalAlign:'middle',paddingLeft:'7px',fontWeight:'bold'}}>Other Field1</span></Col>
                           </Row>
@@ -69,5 +69,6 @@ const TicketDetail = () => {
     );
 };
 
-export default TicketDetail;
+export default UserDetail;
+
 

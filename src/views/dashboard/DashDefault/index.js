@@ -10,19 +10,22 @@ import BarDiscreteChart from '../../charts/nvd3-chart/chart/BarDiscreteChart';
 import avatar1 from '../../../assets/images/user/avatar-1.jpg';
 import avatar2 from '../../../assets/images/user/avatar-2.jpg';
 import avatar3 from '../../../assets/images/user/avatar-3.jpg';
+import Counter from '../../../components/Reusable/counter';
 
 const DashDefault = () => {
+    const count={from:0,to:1000}
     return (
         <React.Fragment>
             <Row>
                 <Col md={6} xl={3}>
                     <Card>
                         <Card.Body>
-                            <h6 className="mb-4">Daily Sales</h6>
+                            <h6 className="mb-4">Successful Delivery</h6>
                             <div className="row d-flex align-items-center">
-                                <div className="col-9">
+                            <div className="col-9">
                                     <h3 className="f-w-300 d-flex align-items-center m-b-0">
-                                        <i className="feather icon-arrow-up text-c-green f-30 m-r-5" /> $249.95
+                                        <i className="feather icon-arrow-up text-c-green f-30 m-r-5" /> 
+                                        <Counter count={count}/>
                                     </h3>
                                 </div>
 
@@ -30,27 +33,19 @@ const DashDefault = () => {
                                     <p className="m-b-0">50%</p>
                                 </div>
                             </div>
-                            <div className="progress m-t-30" style={{ height: '7px' }}>
-                                <div
-                                    className="progress-bar progress-c-theme"
-                                    role="progressbar"
-                                    style={{ width: '50%' }}
-                                    aria-valuenow="50"
-                                    aria-valuemin="0"
-                                    aria-valuemax="100"
-                                />
-                            </div>
+                            
                         </Card.Body>
                     </Card>
                 </Col>
                 <Col md={6} xl={3}>
                     <Card>
                         <Card.Body>
-                            <h6 className="mb-4">Monthly Sales</h6>
+                            <h6 className="mb-4">Successful Delivery</h6>
                             <div className="row d-flex align-items-center">
-                                <div className="col-9">
+                            <div className="col-9">
                                     <h3 className="f-w-300 d-flex align-items-center m-b-0">
-                                        <i className="feather icon-arrow-down text-c-red f-30 m-r-5" /> $2.942.32
+                                        <i className="feather icon-arrow-up text-c-green f-30 m-r-5" /> 
+                                        <Counter count={count}/>
                                     </h3>
                                 </div>
 
@@ -58,27 +53,19 @@ const DashDefault = () => {
                                     <p className="m-b-0">36%</p>
                                 </div>
                             </div>
-                            <div className="progress m-t-30" style={{ height: '7px' }}>
-                                <div
-                                    className="progress-bar progress-c-theme2"
-                                    role="progressbar"
-                                    style={{ width: '35%' }}
-                                    aria-valuenow="35"
-                                    aria-valuemin="0"
-                                    aria-valuemax="100"
-                                />
-                            </div>
+                            
                         </Card.Body>
                     </Card>
                 </Col>
                 <Col md={6} xl={3}>
                     <Card>
                         <Card.Body>
-                            <h6 className="mb-4">Yearly Sales</h6>
+                            <h6 className="mb-4">Successful Delivery</h6>
                             <div className="row d-flex align-items-center">
                                 <div className="col-9">
                                     <h3 className="f-w-300 d-flex align-items-center m-b-0">
-                                        <i className="feather icon-arrow-up text-c-green f-30 m-r-5" /> $8.638.32
+                                        <i className="feather icon-arrow-up text-c-green f-30 m-r-5" /> 
+                                        <Counter count={count}/>
                                     </h3>
                                 </div>
 
@@ -86,27 +73,19 @@ const DashDefault = () => {
                                     <p className="m-b-0">70%</p>
                                 </div>
                             </div>
-                            <div className="progress m-t-30" style={{ height: '7px' }}>
-                                <div
-                                    className="progress-bar progress-c-theme"
-                                    role="progressbar"
-                                    style={{ width: '70%' }}
-                                    aria-valuenow="70"
-                                    aria-valuemin="0"
-                                    aria-valuemax="100"
-                                />
-                            </div>
+                           
                         </Card.Body>
                     </Card>
                 </Col>
                 <Col md={6} xl={3}>
                     <Card>
                         <Card.Body>
-                            <h6 className="mb-4">Yearly Sales</h6>
+                            <h6 className="mb-4">Successful Delivery</h6>
                             <div className="row d-flex align-items-center">
-                                <div className="col-9">
+                            <div className="col-9">
                                     <h3 className="f-w-300 d-flex align-items-center m-b-0">
-                                        <i className="feather icon-arrow-up text-c-green f-30 m-r-5" /> $8.638.32
+                                        <i className="feather icon-arrow-up text-c-green f-30 m-r-5" /> 
+                                        <Counter count={count}/>
                                     </h3>
                                 </div>
 
@@ -114,16 +93,7 @@ const DashDefault = () => {
                                     <p className="m-b-0">70%</p>
                                 </div>
                             </div>
-                            <div className="progress m-t-30" style={{ height: '7px' }}>
-                                <div
-                                    className="progress-bar progress-c-theme"
-                                    role="progressbar"
-                                    style={{ width: '70%' }}
-                                    aria-valuenow="70"
-                                    aria-valuemin="0"
-                                    aria-valuemax="100"
-                                />
-                            </div>
+                            
                         </Card.Body>
                     </Card>
                 </Col>

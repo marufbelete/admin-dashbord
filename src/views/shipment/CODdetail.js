@@ -10,16 +10,16 @@ import PublishIcon from '@material-ui/icons/Publish';
 import Avatar from '@material-ui/core/Avatar';
 
 
-const TicketDetail = () => {
+const CODDetail = () => {
     const detail=[{},{},{}]
     const fileref=useRef()
     return (
         <React.Fragment>
             <Row >
-                <Col>
+                <Col xl={10}>
                     <Card>
                         <Card.Header>
-                            <Card.Title as="h5">Ticket</Card.Title>
+                            <Card.Title as="h5">COD Balance</Card.Title>
                             <span className="d-block m-t-5">
                             </span>
                         </Card.Header>
@@ -28,16 +28,16 @@ const TicketDetail = () => {
 
                             <Row style={{marginBottom:'20px'}}>
                           <Col style={{marginBottom:'20px', marginLeft:'10px'}}>
-                            <span style={{verticalAlign:'middle',paddingLeft:'7px',fontWeight:'bold'}}>Ticket ID: 12612</span></Col>
+                            <span style={{verticalAlign:'middle',paddingLeft:'7px',fontWeight:'bold'}}>Driver ID: 12612</span></Col>
                             
                           <Col style={{marginBottom:'20px', marginLeft:'10px'}}>
-                          <span style={{verticalAlign:'middle',paddingLeft:'7px',fontWeight:'bold'}}>Driver ID:12656</span></Col>
+                          <span style={{verticalAlign:'middle',paddingLeft:'7px',fontWeight:'bold'}}>Driver COD Balance:12656</span></Col>
                           <Col style={{marginBottom:'20px', marginLeft:'10px'}}>
-                          <span style={{verticalAlign:'middle',paddingLeft:'7px',fontWeight:'bold'}}>Issue Date:3-23-2022</span></Col>
+                          <span style={{verticalAlign:'middle',paddingLeft:'7px',fontWeight:'bold'}}>Register Date:3-23-2022</span></Col>
                           </Row>
                           <Row style={{marginBottom:'20px'}}>
                           <Col style={{marginBottom:'20px',marginLeft:'10px'}}>
-                          <span style={{verticalAlign:'middle',paddingLeft:'7px',fontWeight:'bold'}}>Deliverd Date:3-27-2022</span></Col>
+                          <span style={{verticalAlign:'middle',paddingLeft:'7px',fontWeight:'bold'}}>Date:3-27-2022</span></Col>
                           <Col style={{marginBottom:'20px',marginLeft:'10px'}}>
                           <span style={{verticalAlign:'middle',paddingLeft:'7px',fontWeight:'bold'}}>Driver Phone</span></Col>
                           <Col style={{marginBottom:'20px',marginLeft:'10px'}}>
@@ -69,5 +69,8 @@ const TicketDetail = () => {
     );
 };
 
-export default TicketDetail;
+export default CODDetail;
 
+
+
+   

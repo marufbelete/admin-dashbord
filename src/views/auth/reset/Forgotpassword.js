@@ -4,7 +4,8 @@ import { NavLink, useHistory } from 'react-router-dom';
 import useScriptRef from '../../../hooks/useScriptRef';
 import { API_SERVER } from '../../../config/constant';
 import Breadcrumb from '../../../layouts/AdminLayout/Breadcrumb';
-
+import CircularProgress from "@material-ui/core/CircularProgress";
+import Buttons from "@material-ui/core/Button";
 const Forgot = () => {
     let history = useHistory();
     const scriptedRef = useScriptRef();
@@ -61,17 +62,13 @@ const Forgot = () => {
 
                         <Row>
                             <Col mt={2}>
-                                <Button
-                                    className="btn-block"
-                                    color="primary"
-                                    // disabled={isSubmitting}
-                                    size="large"
-                                    type="submit"
-                                    variant="primary"
-                                    onClick={EmailHandler}
-                                >
-                                    Send Password Reset Email
-                                </Button>
+                            <Buttons
+                            type="submit"
+                            fullWidth
+                            variant="contained"
+                            color="primary">
+                        {'pendin'!=='pending'?"Send Reset Email" :<CircularProgress color='secondary' size={18}/>}
+                           </Buttons>
                             </Col>
                         </Row>
                     </form>

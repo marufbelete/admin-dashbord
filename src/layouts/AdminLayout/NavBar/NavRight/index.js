@@ -13,9 +13,12 @@ import avatar1 from '../../../../assets/images/user/avatar-1.jpg';
 import avatar2 from '../../../../assets/images/user/avatar-2.jpg';
 import avatar3 from '../../../../assets/images/user/avatar-3.jpg';
 import avatar4 from '../../../../assets/images/user/avatar-4.jpg';
+import { userinfoActions } from '../../../../store/userinfo-slice';
 const NavRight = () => {
     const account = useSelector((state) => state.account);
     const dispatcher = useDispatch();
+    const userinfo=useSelector(state=>state.userinfo)
+
 const history=useHistory()
     const [listOpen, setListOpen] = useState(false);
     const HandleProfile = () => {
@@ -135,7 +138,7 @@ const history=useHistory()
                             <div className="pro-head">
                                 <img src={avatar1} className="img-radius" alt="User Profile" />
                                 <span>
-                                    User Menu
+                                    {userinfo.username}
                                 </span>
                                 <Link to="#" className="dud-logout" onClick={handleLogout} title="Logout">
                                     <i className="feather icon-log-out" />

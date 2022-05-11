@@ -1,20 +1,32 @@
 import { combineReducers } from '@reduxjs/toolkit';
 import { reducer as formReducer } from 'redux-form';
-import accountReducer from './accountReducer';
-
+import loginSlice from './login-slice';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+import loadingSlice from './loading-slice';
+import errorSlice from './error-slice';
+import userinfoSlice from './userinfo-slice';
 
 const reducers = combineReducers({
-    account: persistReducer(
+    login: persistReducer(
         {
             key: 'account',
             storage,
             keyPrefix: 'datta-'
         },
-        accountReducer
+        loginSlice
     ),
-    form: formReducer
+   loading:loadingSlice,
+   message:errorSlice,
+   userinfo:persistReducer(
+    {
+        key: 'user',
+        storage,
+        keyPrefix: 'datta-'
+    },
+    userinfoSlice
+),
+  
 });
 
 export default reducers;

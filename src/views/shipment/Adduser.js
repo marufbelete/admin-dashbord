@@ -10,6 +10,8 @@ import PersonIcon from '@material-ui/icons/Person';
 import WorkIcon from '@material-ui/icons/Work';
 import EnhancedEncryptionIcon from '@material-ui/icons/EnhancedEncryption';
 import DeviceHubIcon from '@material-ui/icons/DeviceHub';
+import CircularProgress from "@material-ui/core/CircularProgress";
+import Buttons from "@material-ui/core/Button";
 const FormsElements = () => {
    const [value,setValue]= useState()
     const [validated, setValidated] = useState(false);
@@ -156,7 +158,12 @@ const FormsElements = () => {
                                    
                                 </Col>
                                 <Col style={{paddingBottom:'20px'}}>
-                                <Button variant="primary">Add User</Button>
+                                <Buttons   
+                                type="submit"
+                                variant="contained"
+                                color="primary">
+                                {'pendin'!=='pending'?"Add user" :<CircularProgress color='secondary' size={18}/>}
+                           </Buttons>
 
                                 </Col>
                             </Row>

@@ -9,10 +9,7 @@ const store = configureStore({
     devTools: true
 });
 
-export const useSelector = useReduxSelector;
-
-export const useDispatch = () => useReduxDispatch();
-
 const persister = persistStore(store);
 
-export { store, persister };
+export { store,persister};
+

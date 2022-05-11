@@ -7,9 +7,9 @@ import Box from '@material-ui/core/Box';
 import FormControls from '@material-ui/core/FormControl';
 import InputLabel from "@material-ui/core/InputLabel";
 import PersonIcon from '@material-ui/icons/Person';
-import WorkIcon from '@material-ui/icons/Work';
 import EnhancedEncryptionIcon from '@material-ui/icons/EnhancedEncryption';
-import DeviceHubIcon from '@material-ui/icons/DeviceHub';
+import CircularProgress from "@material-ui/core/CircularProgress";
+import Buttons from "@material-ui/core/Button";
 const FormsElements = () => {
    const [value,setValue]= useState()
     const [validated, setValidated] = useState(false);
@@ -99,7 +99,13 @@ const FormsElements = () => {
                                             color:'#038FCF'}}><EnhancedEncryptionIcon/></div>
                                         </Form.Group> 
                                            
-                                        <Button  variant="primary">Change Password</Button>
+                                        <Buttons
+                            type="submit"
+                            fullWidth
+                            variant="contained"
+                            color="primary">
+                           {'pendin'!=='pending'?"Submit" :<CircularProgress color='secondary' size={18}/>}
+                           </Buttons>
                                
                                 </Col>
                             

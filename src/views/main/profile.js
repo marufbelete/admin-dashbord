@@ -7,9 +7,9 @@ import LocalPhoneIcon from '@material-ui/icons/LocalPhone';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import MailIcon from '@material-ui/icons/Mail';
 import TextField from "@material-ui/core/TextField";
-import PublishIcon from '@material-ui/icons/Publish';
 import Avatar from '@material-ui/core/Avatar';
-
+import CircularProgress from "@material-ui/core/CircularProgress";
+import Buttons from "@material-ui/core/Button";
 
 const Profile = () => {
     const fileref=useRef()
@@ -105,7 +105,13 @@ const Profile = () => {
                             />
                             </Col>
                             <Col>
-                            <Button variant="primary">Update Info</Button>
+                            <Buttons
+                            type="submit"
+                            fullWidth
+                            variant="contained"
+                            color="primary">
+                        {'pendin'!=='pending'?"Update Info" :<CircularProgress color='secondary' size={18}/>}
+                           </Buttons>
                             </Col>
                             </Col>
                         </Card.Body>

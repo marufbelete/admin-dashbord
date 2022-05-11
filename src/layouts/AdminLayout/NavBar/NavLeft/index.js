@@ -1,13 +1,13 @@
 import React from 'react';
-import { ListGroup, Dropdown } from 'react-bootstrap';
+import { ListGroup, Dropdown, } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-
+import { useSelector } from 'react-redux';
 import useWindowSize from '../../../../hooks/useWindowSize';
 import NavSearch from './NavSearch';
 
 const NavLeft = () => {
     const windowSize = useWindowSize();
-
+  const userinfo=useSelector(state=>state.userinfo)
     let dropdownRightAlign = false;
 
     let navItemClass = ['nav-item'];
@@ -18,31 +18,8 @@ const NavLeft = () => {
     return (
         <React.Fragment>
             <ListGroup as="ul" bsPrefix=" " className="navbar-nav mr-auto">
-                <ListGroup.Item as="li" bsPrefix=" " className={navItemClass.join(' ')}>
-                    <Dropdown alignRight={dropdownRightAlign}>
-                        <Dropdown.Toggle variant={'link'} id="dropdown-basic">
-                            Dropdown
-                        </Dropdown.Toggle>
-                        <ul>
-                            <Dropdown.Menu>
-                                <li>
-                                    <Link to="#" className="dropdown-item">
-                                        Action
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link to="#" className="dropdown-item">
-                                        Another action
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link to="#" className="dropdown-item">
-                                        Something else here
-                                    </Link>
-                                </li>
-                            </Dropdown.Menu>
-                        </ul>
-                    </Dropdown>
+                <ListGroup.Item variant={'link'} as="li" bsPrefix=" " className={navItemClass.join(' ')}>
+                            {'Hello '+ userinfo.username}     
                 </ListGroup.Item>
                 <ListGroup.Item as="li" bsPrefix=" " className="nav-item">
                     <NavSearch windowWidth={windowSize.width} />

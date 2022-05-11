@@ -1,5 +1,5 @@
 export const BASENAME = ''; // don't add '/' at end off BASENAME
-export const BASE_URL = '/dashboard';
+export const BASE_URL = '/signin';
 export const BASE_TITLE = ' | Admin Dashboard ';
 export const API_SERVER = 'http://localhost:5000/api/';
 
