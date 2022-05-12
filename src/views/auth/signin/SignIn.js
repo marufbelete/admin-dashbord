@@ -23,13 +23,11 @@ const dispatch=useDispatch()
         event.preventDefault()
         const email=emailref.current.value
         const password=passwordref.current.value
-        console.log(email.trim(),password)
         if(email.trim()&&password.trim())
         {
             dispatch(errorActions.Message(''))
             dispatch(loadingActions.status('pending'))
             dispatch(loginUser({username:email,password:password}))
-            console.log('done')
         }
         else{
             dispatch(errorActions.Message('please fill all field'))

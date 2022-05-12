@@ -10,7 +10,7 @@ import TextField from "@material-ui/core/TextField";
 import Avatar from '@material-ui/core/Avatar';
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Buttons from "@material-ui/core/Button";
-
+import { StyledImg } from '../../components/styled/main.styled';
 const Profile = () => {
     const fileref=useRef()
     return (
@@ -52,7 +52,9 @@ const Profile = () => {
                             <Col md={12} xl={10}>
                                 <Col style={{marginBottom:'15px'}}>         
                             <input style={{display:'none'}} ref={fileref} type="file"/>
+                            <StyledImg>
                             <Avatar onClick={()=>fileref.current.click()} style={{width:'70px',height:'70px',margin:'auto',':hover': { cursor: "pointer"}}} alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+                            </StyledImg>
                             </Col>
                             <Col style={{marginBottom:'20px'}}>
                             <TextField

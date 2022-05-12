@@ -1,46 +1,90 @@
 import React from 'react';
 import NVD3Chart from 'react-nvd3';
 
-function getDatum() {
-    var sin = [],
-        sin2 = [],
-        cos = [];
-    for (var i = 0; i < 100; i++) {
-        sin.push({
-            x: i,
-            y: Math.sin(i / 10)
-        });
-        sin2.push({
-            x: i,
-            y: Math.sin(i / 10) * 0.25 + 0.5
-        });
-        cos.push({
-            x: i,
-            y: 0.5 * Math.cos(i / 10)
-        });
-    }
-    return [
+    const data= [
         {
-            values: sin,
-            key: 'Sine Wave',
+            values: [{
+                "x": 1998,
+                "y": 10.45
+            }, {
+                "x": 1999,
+                "y": 10.48
+            }, {
+                "x": 2000,
+                "y": 11.5
+            }, {
+                "x": 2001,
+                "y": 11.52
+            }, {
+                "x": 2002,
+                "y": 10.55
+            }, {
+                "x": 2003,
+                "y": 11.58
+            }, {
+                "x": 2004,
+                "y": 10.6
+            }],
+            key: 'Store3 Profit',
             color: '#A389D4'
         },
         {
-            values: cos,
-            key: 'Cosine Wave',
+            values: [{
+                "x": 1998,
+                "y": 13.45
+            }, {
+                "x": 1999,
+                "y": 13.48
+            }, {
+                "x": 2000,
+                "y": 13.5
+            }, {
+                "x": 2001,
+                "y": 12.52
+            }, {
+                "x": 2002,
+                "y": 12.55
+            }, {
+                "x": 2003,
+                "y": 13.58
+            }, {
+                "x": 2004,
+                "y": 14.6
+            }],
+            key: 'Store1 Profit',
             color: '#04a9f5'
         },
         {
-            values: sin2,
-            key: 'Another sine wave',
+            values:  [{
+                "x": 1998,
+                "y": 15
+            }, {
+                "x": 1999,
+                "y": 15.2
+            }, {
+                "x": 2000,
+                "y": 15
+            }, {
+                "x": 2001,
+                "y": 15.9
+            }, {
+                "x": 2002,
+                "y": 15
+            }, {
+                "x": 2003,
+                "y": 16
+            }, {
+                "x": 2004,
+                "y": 15.7
+            }
+],
+            key: 'Store2 Profit',
             color: '#1de9b6',
             area: true
         }
-    ];
-}
+    ]
 
 const LineChart = () => {
-    const data = getDatum();
     return (
         <React.Fragment>
             {React.createElement(NVD3Chart, {
@@ -51,7 +95,7 @@ const LineChart = () => {
                     axisLabel: 'Time (ms)'
                 },
                 yAxis: {
-                    axisLabel: 'Voltage (v)',
+                    axisLabel: 'Profit (v)',
                     tickFormat: function (d) {
                         return parseFloat(d).toFixed(2);
                     }
@@ -62,7 +106,6 @@ const LineChart = () => {
                 y: 'y',
                 height: 300,
                 renderEnd: function () {
-                    console.log('renderEnd');
                 }
             })}
         </React.Fragment>

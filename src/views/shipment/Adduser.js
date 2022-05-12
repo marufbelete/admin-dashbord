@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Row, Col, Card, Form, Button, InputGroup, FormControl, DropdownButton, Dropdown } from 'react-bootstrap';
 import TextField from "@material-ui/core/TextField";
 import MenuItem from '@material-ui/core/MenuItem';
@@ -12,9 +12,19 @@ import EnhancedEncryptionIcon from '@material-ui/icons/EnhancedEncryption';
 import DeviceHubIcon from '@material-ui/icons/DeviceHub';
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Buttons from "@material-ui/core/Button";
+import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { loadingActions } from '../../store/loading-slice';
+import { errorActions } from '../../store/error-slice';
+import { addUser } from '../../store/authhttp';
+import toast, { Toaster } from 'react-hot-toast';
+
 const FormsElements = () => {
+    const notify = () => toast.success('User Successfully Added.', {
+        duration: 4000,
+      });
+    const loadingStatus=useSelector(state=>state.loading.status)
+    const message=useSelector(state=>state.message.errMessage)
     const dispatch=useDispatch()
    const [value,setValue]= useState()
    const usernameref=useRef()
@@ -22,24 +32,51 @@ const FormsElements = () => {
    const confirmpasswordref=useRef()
    const roleref=useRef()
    const hubref=useRef()
-const AdduserHandler=()=>{
-if(usernameref.trim()&&passwordref.trim()&&confirmpasswordref.trim()&&roleref.trim()&&hubref.trim())
+   useEffect(()=>{
+   message==='added'&&notify()
+   },[message])
+const AdduserHandler=(event)=>{
+    event.preventDefault()
+    const username=usernameref.current.value
+    const password=passwordref.current.value
+    const confirmpassword=confirmpasswordref.current.value
+    const roletype=roleref.current.value
+    const hubid=hubref.current.value
+    console.log(usernameref.current.value)
+    console.log(roletype)
+    console.log(hubid)
+if(username.trim()&&password.trim()&&confirmpassword.trim()&&roletype.trim()&&hubid.trim())
 {
-    dispatch(loadingActions.status('pending'))
-    
+    if(password.trim()===confirmpassword.trim())
+    {
+        const user={username,password,confirmpassword,roletype,hubid}
+        dispatch(loadingActions.status('pending'))
+        dispatch(addUser(user))
+    }
+    else{
+        dispatch(errorActions.Message('password must match'))
+    }
+}
+else{
+    dispatch(errorActions.Message('please all field'))
 }
     }
 
-
     return (
         <React.Fragment>
+            <Toaster />
             <Row>
-                <Col sm={12}>
+                <Col xl={10} sm={12} lg={10} md={10}>
                     <Card>
                         <Card.Header>
                             <Card.Title as="h5">Add User</Card.Title>
                         </Card.Header>
                         <Card.Body>
+                        {message!=='added' && (
+                            <Col sm={12} style={{marginBottom:'20px'}}>
+                            <small className="text-danger form-text">{message}</small>
+                            </Col>
+                        )} 
                             <Row>
                                 <Col md={6}>
                                         <Form.Group style={{marginBottom:'30px'}} controlId="formBasicEmail">
@@ -47,7 +84,7 @@ if(usernameref.trim()&&passwordref.trim()&&confirmpasswordref.trim()&&roleref.tr
                                             type='text' 
                                             variant='outlined'
                                             label="User name"
-                                            ref={usernameref}
+                                            inputRef={usernameref}
                                             fullWidth
                                             required
                                         /><div
@@ -62,7 +99,7 @@ if(usernameref.trim()&&passwordref.trim()&&confirmpasswordref.trim()&&roleref.tr
                                             type='password' 
                                             variant='outlined'
                                             label="Password"
-                                            ref={passwordref}
+                                            inputRef={passwordref}
                                             required
                                             fullWidth
                                         /><div
@@ -75,7 +112,7 @@ if(usernameref.trim()&&passwordref.trim()&&confirmpasswordref.trim()&&roleref.tr
                                         <Form.Group style={{marginBottom:'30px'}} controlId="formBasicPassword">
                                         <TextField
                                             type='password' 
-                                            ref={confirmpasswordref}
+                                            inputRef={confirmpasswordref}
                                             variant='outlined'
                                             label="Confirm password"
                                             fullWidth
@@ -95,7 +132,7 @@ if(usernameref.trim()&&passwordref.trim()&&confirmpasswordref.trim()&&roleref.tr
                                     onChange={(e) => setValue(e.target.value)}
                                     select // tell TextField to render select
                                     label="Role type"
-                                    ref={roleref}
+                                    inputRef={roleref}
                                     variant='outlined'
                                     fullWidth
                                     required
@@ -122,7 +159,7 @@ if(usernameref.trim()&&passwordref.trim()&&confirmpasswordref.trim()&&roleref.tr
                                     onChange={(e) => setValue(e.target.value)}
                                     select // tell TextField to render select
                                     label="Hub id"
-                                    ref={hubref}
+                                    inputRef={hubref}
                                     variant='outlined'
                                     fullWidth
                                     required
@@ -152,7 +189,7 @@ if(usernameref.trim()&&passwordref.trim()&&confirmpasswordref.trim()&&roleref.tr
                                 type="submit"
                                 variant="contained"
                                 color="primary">
-                                {'pendin'!=='pending'?"Add user" :<CircularProgress color='secondary' size={18}/>}
+                                {loadingStatus!=='pending'?"Add user" :<CircularProgress color='secondary' size={18}/>}
                            </Buttons>
 
                                 </Col>

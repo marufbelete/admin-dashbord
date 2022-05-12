@@ -8,3 +8,11 @@ export const CounterStyle=styled.div`
 display: inline-block;
 
 `
+export const StyledImg=styled.div`
+&:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+
+}
+
+`

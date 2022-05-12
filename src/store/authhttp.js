@@ -3,12 +3,14 @@ import { loadingActions } from "./loading-slice"
 import axios from "axios"
 import { errorActions } from "./error-slice"
 import { userinfoActions } from "./userinfo-slice"
-export const registerUser=(data)=>{
+export const addUser=(data)=>{
     return async(dispatch)=>{
         try{
             console.log(data)
-            const res=await axios.post('https://sultan-lm2.herokuapp.com/register',data)
+            const res=await axios.post('https://sultan-lm2.herokuapp.com/register',data,{ withCredentials: true })
+            console.log(res)
             dispatch(loadingActions.status("done"))
+            dispatch(errorActions.Message('added'))
             
         }
        catch(err)

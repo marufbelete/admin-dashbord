@@ -14,6 +14,7 @@ import avatar2 from '../../../../assets/images/user/avatar-2.jpg';
 import avatar3 from '../../../../assets/images/user/avatar-3.jpg';
 import avatar4 from '../../../../assets/images/user/avatar-4.jpg';
 import { userinfoActions } from '../../../../store/userinfo-slice';
+import { errorActions } from '../../../../store/error-slice';
 const NavRight = () => {
     const account = useSelector((state) => state.account);
     const dispatch = useDispatch();
@@ -26,6 +27,7 @@ const history=useHistory()
     };
     const handleLogout = () => {
         dispatch(loginActions.isLoged(false))
+        dispatch(errorActions.Message(''))
         history.push('/signin')
     };
 

@@ -48,7 +48,7 @@ const FormsElements = () => {
     return (
         <React.Fragment>
             <Row>
-                <Col sm={12}>
+                <Col xl={10} sm={12} lg={10} md={10}>
                     <Card>
                         <Card.Header>
                             <Card.Title as="h5">Change Password</Card.Title>
